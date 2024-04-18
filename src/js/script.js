@@ -182,7 +182,7 @@
             // Check if the option is selected in the form
             if (formData[paramId] && formData[paramId].includes(optionId)) {
               // If the option is selected, show the image
-              optionImage.style.display = 'block';
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
 
               // Check if the option is not default
               if (!option.default) {
@@ -191,7 +191,7 @@
               }
             } else {
               // If the option is not selected, hide the image
-              optionImage.style.display = 'none';
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
 
               // Check if the option is default
               if (option.default) {
