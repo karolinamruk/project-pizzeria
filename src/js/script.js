@@ -178,26 +178,28 @@
           );
 
           // Check if the image was found
-          if (optionImage) {
-            // Check if the option is selected in the form
-            if (formData[paramId] && formData[paramId].includes(optionId)) {
+
+          // Check if the option is selected in the form
+          if (formData[paramId] && formData[paramId].includes(optionId)) {
+            if (optionImage) {
               // If the option is selected, show the image
               optionImage.classList.add(classNames.menuProduct.imageVisible);
+            }
 
-              // Check if the option is not default
-              if (!option.default) {
-                // Add or subtract the option price from the total price
-                price += option.price;
-              }
-            } else {
-              // If the option is not selected, hide the image
+            // Check if the option is not default
+            if (!option.default) {
+              // Add or subtract the option price from the total price
+              price += option.price;
+            }
+          } else {
+            // If the option is not selected, hide the image
+            if (optionImage) {
               optionImage.classList.remove(classNames.menuProduct.imageVisible);
-
-              // Check if the option is default
-              if (option.default) {
-                // Add or subtract the option price from the total price
-                price -= option.price;
-              }
+            }
+            // Check if the option is default
+            if (option.default) {
+              // Add or subtract the option price from the total price
+              price -= option.price;
             }
           }
         }
