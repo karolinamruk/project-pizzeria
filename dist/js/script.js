@@ -7,6 +7,7 @@
     templateOf: {
       menuProduct: '#template-menu-product',
       cartProduct: '#template-cart-product', // CODE ADDED
+      cartProduct: '#template-cart-product', // CODE ADDED
     },
     containerOf: {
       menu: '#product-list',
