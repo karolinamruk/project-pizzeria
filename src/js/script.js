@@ -426,6 +426,58 @@
       thisCart.dom.productList.appendChild(generatedDOM);
 
       console.log('adding product', menuProduct);
+
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      console.log('thisCart.products', thisCart.products);
+    }
+  }
+  class CartProduct {
+    constructor(menuProduct, element) {
+      const thisCartProduct = this;
+
+      thisCartProduct.id = menuProduct.id;
+      thisCartProduct.name = menuProduct.name;
+      thisCartProduct.amount = menuProduct.amount;
+      thisCartProduct.priceSingle = menuProduct.priceSingle;
+      thisCartProduct.price = menuProduct.price;
+      thisCartProduct.params = menuProduct.params;
+      thisCartProduct.getElements(element);
+      thisCartProduct.initAmountWidget();
+
+      console.log('CartProduct:', thisCartProduct);
+    }
+
+    getElements(element) {
+      const thisCartProduct = this;
+
+      thisCartProduct.dom = {};
+      thisCartProduct.dom.wrapper = element;
+
+      // Znalezienie elementu widget-amount dla ilości
+      thisCartProduct.dom.amountWidget = element.querySelector(
+        select.cartProduct.amountWidget
+      );
+      thisCartProduct.dom.price = element.querySelector(
+        select.cartProduct.price
+      );
+      thisCartProduct.dom.edit = element.querySelector(select.cartProduct.edit);
+      thisCartProduct.dom.remove = element.querySelector(
+        select.cartProduct.remove
+      );
+    }
+    initAmountWidget() {
+      const thisCartProduct = this;
+
+      thisCartProduct.amountWidget = new AmountWidget(
+        thisCartProduct.dom.amountWidget
+      );
+
+      thisCartProduct.dom.amountWidget.addEventListener('updated', function () {
+        const newValue = thisCartProduct.amountWidget.value;
+        const newPrice = thisCartProduct.priceSingle * newValue;
+
+        thisCartProduct.dom.price.innerHTML = newPrice;
+      });
     }
   }
 
