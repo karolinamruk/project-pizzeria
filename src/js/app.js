@@ -1,8 +1,16 @@
 import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
+  initBooking() {
+    const thisApp = this;
+
+    thisApp.booking = document.querySelector(select.containerOf.booking);
+    new Booking(thisApp.booking);
+  },
+
   initPages: function () {
     const thisApp = this;
 
@@ -61,8 +69,6 @@ const app = {
   initMenu: function () {
     const thisApp = this;
 
-    // console.log('thisApp.data:', thisApp.data);
-
     for (let productData in thisApp.data.products) {
       // new Product(productData, thisApp.data.products[productData]);
       new Product(
@@ -82,14 +88,11 @@ const app = {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
-
         /*save parsedResponse as thisApp.data.products */
         thisApp.data.products = parsedResponse;
         /*execute initMenu method */
         thisApp.initMenu();
       });
-    console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
 
   initCart: function () {
@@ -115,6 +118,8 @@ const app = {
     // thisApp.initMenu();
 
     thisApp.initCart();
+
+    thisApp.initBooking();
   },
 };
 
