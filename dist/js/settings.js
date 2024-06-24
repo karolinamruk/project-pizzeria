@@ -25,7 +25,7 @@ export const select = {
   },
   widgets: {
     amount: {
-      input: 'input.amount', // CODE CHANGED
+      input: 'input.amount',
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
     },
@@ -44,11 +44,14 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    phone: `input[name="phone"]`,
+    adress: `input[name="addresss"]`,
+    starters: `input[name="starter"]`,
   },
   nav: {
     links: '.main-nav a',
   },
-  // CODE ADDED START
+
   cart: {
     productList: '.cart__order-summary',
     toggleTrigger: '.cart__summary',
@@ -68,7 +71,6 @@ export const select = {
     edit: '[href="#edit"]',
     remove: '[href="#remove"]',
   },
-  // CODE ADDED END
 };
 
 export const classNames = {

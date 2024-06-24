@@ -9,6 +9,8 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.getElements(element);
 
+    thisWidget.value = settings.amountWidget.defaultValue; // Ustaw domyślną wartość na 1
+
     thisWidget.initActions();
     // console.log('AmountWidget:', thisWidget);
   }

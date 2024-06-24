@@ -1,5 +1,3 @@
-// import { select } from '../settings.js';
-
 import { select, templates, settings, classNames } from '../settings.js';
 import utils from '../utils.js';
 import AmountWidget from '../components/AmountWidget.js';
@@ -10,6 +8,7 @@ class Booking {
   constructor(element) {
     const thisBooking = this;
 
+    thisBooking.selectedTable = null;
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
@@ -175,6 +174,14 @@ class Booking {
       } else {
         table.classList.remove(classNames.booking.tableBooked);
       }
+
+      if (
+        table.classList.contains(classNames.booking.tableBooked) &&
+        thisBooking.selectedTable == tableId
+      ) {
+        thisBooking.selectedTable = null;
+        table.classList.remove(classNames.booking.tableSelected);
+      }
     }
   }
 
@@ -205,6 +212,16 @@ class Booking {
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(
       select.booking.tables
     );
+
+    thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(
+      select.booking.phone
+    );
+    thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(
+      select.booking.address
+    );
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(
+      select.booking.starters
+    );
   }
 
   initWidgets() {
@@ -218,13 +235,86 @@ class Booking {
 
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
 
-    thisBooking.dom.peopleAmount.addEventListener('updated', function () {});
+    thisBooking.dom.wrapper.addEventListener('click', function (event) {
+      event.preventDefault();
+      const clickedElement = event.target.closest(select.booking.tables);
 
-    thisBooking.dom.hoursAmount.addEventListener('updated', function () {});
+      if (clickedElement) {
+        thisBooking.initTables(clickedElement);
+      }
+    });
+
+    thisBooking.dom.datePicker.addEventListener('updated', function () {
+      thisBooking.resetSelectedTable(); // Resetowanie wybranego stolika przy zmianie daty
+      thisBooking.updateDOM();
+    });
+    thisBooking.dom.hourPicker.addEventListener('updated', function () {
+      thisBooking.resetSelectedTable(); // Resetowanie wybranego stolika przy zmianie godziny
+      thisBooking.updateDOM();
+    });
+
+    thisBooking.dom.peopleAmount.addEventListener('updated', function () {
+      thisBooking.resetSelectedTable(); // Resetowanie wybranego stolika przy zmianie liczby osób
+    });
+
+    thisBooking.dom.hoursAmount.addEventListener('updated', function () {
+      thisBooking.resetSelectedTable(); // Resetowanie wybranego stolika przy zmianie liczby godzin
+    });
 
     thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
     });
+  }
+
+  initTables(clickedElement) {
+    const thisBooking = this;
+
+    let tableId = clickedElement.getAttribute(
+      settings.booking.tableIdAttribute
+    );
+    if (!isNaN(tableId)) {
+      tableId = parseInt(tableId);
+    }
+
+    if (clickedElement.classList.contains(classNames.booking.tableBooked)) {
+      alert('Ten stolik jest już zarezerwowany w tym terminie. Wybierz inny.');
+      return;
+    }
+
+    if (thisBooking.selectedTable === tableId) {
+      thisBooking.selectedTable = null; // Resetowanie wybranego stolika, jeśli ten sam stolik jest kliknięty
+      clickedElement.classList.remove(classNames.booking.tableSelected);
+    } else {
+      if (thisBooking.selectedTable) {
+        const previouslySelectedTable = thisBooking.dom.wrapper.querySelector(
+          `[${settings.booking.tableIdAttribute}="${thisBooking.selectedTable}"]`
+        );
+        if (previouslySelectedTable) {
+          previouslySelectedTable.classList.remove(
+            classNames.booking.tableSelected
+          ); // Usuń klasę selected z poprzednio wybranego stolika
+        }
+      }
+
+      thisBooking.selectedTable = tableId; // Ustawienie nowo wybranego stolika
+      clickedElement.classList.add(classNames.booking.tableSelected); // Dodanie klasy selected do nowo wybranego stolika
+    }
+  }
+
+  resetSelectedTable() {
+    const thisBooking = this;
+
+    if (thisBooking.selectedTable) {
+      const previouslySelectedTable = thisBooking.dom.wrapper.querySelector(
+        `[${settings.booking.tableIdAttribute}="${thisBooking.selectedTable}"]`
+      );
+      if (previouslySelectedTable) {
+        previouslySelectedTable.classList.remove(
+          classNames.booking.tableSelected
+        ); // Usuń klasę selected z poprzednio wybranego stolika
+      }
+      thisBooking.selectedTable = null; // Resetowanie wybranego stolika
+    }
   }
 }
 
