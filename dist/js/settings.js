@@ -45,7 +45,7 @@ export const select = {
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
     phone: `input[name="phone"]`,
-    adress: `input[name="addresss"]`,
+    address: `input[name="address"]`,
     starters: `input[name="starter"]`,
   },
   nav: {

@@ -8,6 +8,8 @@ class Booking {
   constructor(element) {
     const thisBooking = this;
 
+    thisBooking.starters = [];
+
     thisBooking.selectedTable = null;
     thisBooking.render(element);
     thisBooking.initWidgets();
@@ -222,6 +224,8 @@ class Booking {
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(
       select.booking.starters
     );
+    thisBooking.dom.bookingButton =
+      thisBooking.dom.wrapper.querySelector('.btn-secondary');
   }
 
   initWidgets() {
@@ -261,8 +265,42 @@ class Booking {
       thisBooking.resetSelectedTable(); // Resetowanie wybranego stolika przy zmianie liczby godzin
     });
 
-    thisBooking.dom.wrapper.addEventListener('updated', function () {
-      thisBooking.updateDOM();
+    // thisBooking.dom.wrapper.addEventListener('updated', function () {});
+
+    thisBooking.dom.wrapper.addEventListener('change', function (event) {
+      if (event.target.matches('input[type="checkbox"][name="starter"]')) {
+        const starterValue = event.target.value;
+        if (
+          event.target.checked &&
+          !thisBooking.starters.includes(starterValue)
+        ) {
+          thisBooking.starters.push(starterValue);
+        } else if (
+          !event.target.checked &&
+          thisBooking.starters.includes(starterValue)
+        ) {
+          thisBooking.starters.splice(
+            thisBooking.starters.indexOf(starterValue),
+            1
+          );
+        }
+      }
+      // thisBooking.sendBooking();
+      // thisBooking.updateDOM();
+    });
+
+    thisBooking.dom.phone.addEventListener('input', function (event) {
+      const input = event.target.value;
+      const numericInput = input.replace(/\D/g, '');
+      if (input !== numericInput) {
+        alert('Dozwolone tylko liczby');
+        event.target.value = numericInput;
+      }
+    });
+
+    thisBooking.dom.bookingButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      thisBooking.sendBooking();
     });
   }
 
@@ -315,6 +353,59 @@ class Booking {
       }
       thisBooking.selectedTable = null; // Resetowanie wybranego stolika
     }
+  }
+
+  sendBooking() {
+    const thisBooking = this;
+
+    const url = settings.db.url + '/' + settings.db.bookings;
+
+    const payload = {
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      table:
+        thisBooking.selectedTable !== null
+          ? Number(thisBooking.selectedTable)
+          : null,
+      duration: Number(thisBooking.hoursAmount.value),
+      ppl: Number(thisBooking.peopleAmount.value),
+      starters: [],
+      phone: thisBooking.dom.phone.value,
+      address: thisBooking.dom.address.value,
+    };
+
+    console.log(payload);
+
+    // for (let starter of thisBooking.starters) {
+    //   payload.products.push(starter.getData());
+    // }
+
+    thisBooking.dom.starters.forEach((starter) => {
+      if (starter.checked) {
+        payload.starters.push(starter.value); // Dodaj wartość checked startera do tablicy
+      }
+    });
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    };
+
+    fetch(url, options)
+      .then((response) => response.json())
+      .then(() => {
+        // Jeśli rezerwacja się powiodła, dodaj ją do thisBooking.booked
+        thisBooking.makeBooked(
+          payload.date,
+          payload.hour,
+          payload.duration,
+          payload.table
+        );
+        thisBooking.updateDOM(); // Zaktualizuj DOM, aby odzwierciedlić nową rezerwację
+      });
   }
 }
 
