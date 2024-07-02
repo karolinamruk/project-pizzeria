@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Pizzeria</title>
+
     <link
       href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
       rel="stylesheet"
@@ -19,6 +20,11 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -31,6 +37,7 @@
           </div>
 
           <div class="main-nav">
+            <a href="#home">Home</a>
             <a href="#order">Order</a>
             <a href="#booking">Booking</a>
           </div>
@@ -86,6 +93,9 @@
     </header>
 
     <div id="pages">
+      <section id="home">
+        <div class="home-wrapper container"></div>
+      </section>
       <section id="order">
         <div id="product-list" class="product-list container"></div>
       </section>
@@ -96,33 +106,33 @@
 
     <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
-        <div class='widget-amount'>
+        <div class="widget-amount">
           <!-- widget-amount -->
-          <a class='btn-quantity btn-quantity--lt' href='#less'><i
-              class='fas fa-minus'
+          <a class="btn-quantity btn-quantity--lt" href="#less"><i
+              class="fas fa-minus"
             ></i></a>
-          <input class='amount' type='text' value='{{amount}}' />
-          <a class='btn-quantity btn-quantity--lt' href='#more'><i
-              class='fas fa-plus'
+          <input class="amount" type="text" value="{{amount}}" />
+          <a class="btn-quantity btn-quantity--lt" href="#more"><i
+              class="fas fa-plus"
             ></i></a>
         </div>
-        <div class='cart__product'>
-          <div class='cart__product-header'>
+        <div class="cart__product">
+          <div class="cart__product-header">
             <span>{{name}}</span>
-            <span>$<strong class='cart__product-price'>{{price}}</strong></span>
+            <span>$<strong class="cart__product-price">{{price}}</strong></span>
           </div>
-          <ul class='cart__product-details no-spacing'>
+          <ul class="cart__product-details no-spacing">
             {{#each params}}
               <li>
-                <span class='cart__product-details-label'>{{label}}</span>
+                <span class="cart__product-details-label">{{label}}</span>
                 <span>{{#joinValues options}}, {{/joinValues}}</span>
               </li>
             {{/each}}
           </ul>
         </div>
-        <ul class='cart__action-buttons no-spacing'>
-          <li><a href='#edit'>Edit<i class='fas fa-pencil-alt'></i></a></li>
-          <li><a href='#remove'>Remove<i class='fas fa-trash-alt'></i></a></li>
+        <ul class="cart__action-buttons no-spacing">
+          <li><a href="#edit">Edit<i class="fas fa-pencil-alt"></i></a></li>
+          <li><a href="#remove">Remove<i class="fas fa-trash-alt"></i></a></li>
         </ul>
       </li>
     </script>
@@ -206,90 +216,180 @@
       </article> <!-- .product -->
     </script>
 
+    <script id="template-home-wrapper" type="text/x-handlebars-template">
+      <div class="home-banner">
+        <div class="home-buttons">
+          <div class="btn-order-online">
+            <a href="#">
+              <img
+                src="images/pizzeria-home/pizza-1.jpg"
+                alt="Order Online"
+              /><span>Order Online</span>
+            </a>
+          </div>
+
+          <div class="btn-book-a-table">
+            <a href="#">
+              <img
+                src="images/pizzeria-home/pizza-2.jpg"
+                alt="Book a Table"
+              /><span>Book a Table</span>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="opening-hours">
+          <p class="opening-hours-header">OPENING HOURS:</p>
+          <p class="opening-hours-header2">TUE-SUN, 12PM - 12AM</p>
+        </div>
+      </div>
+
+      <div class="home-carousel">
+        <div class="carousel-cell">
+          <div class="testimonial">
+            <img
+              src="images/pizzeria-home/pizza-3.jpg"
+              alt="Customer Image 1"
+              class="img-carousel"
+            />
+            <p>AMAZING SERVICE!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
+              dolor at elit lobortis sodales.</p>
+            <span class="author">- Margaret Osborne</span>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div class="testimonial">
+            <img
+              src="images/pizzeria-home/pizza-2.jpg"
+              alt="Customer Image 2"
+              class="img-carousel"
+            />
+            <p>BEST PIZZA IN TOWN!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
+              dolor at elit lobortis sodales.</p>
+            <span class="author">- John Doe</span>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div class="testimonial">
+            <img
+              src="images/pizzeria-home/pizza-2.jpg"
+              alt="Customer Image 3"
+              class="img-carousel"
+            />
+            <p>GREAT ATMOSPHERE!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+              egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
+              dolor at elit lobortis sodales.</p>
+            <span class="author">- Jane Smith</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-gallery">
+        <img src="images/pizzeria-home/pizza-4.jpg" alt="Gallery Image 1" />
+        <img src="images/pizzeria-home/pizza-5.jpg" alt="Gallery Image 2" />
+        <img src="images/pizzeria-home/pizza-6.jpg" alt="Gallery Image 3" />
+        <img src="images/pizzeria-home/pizza-7.jpg" alt="Gallery Image 4" />
+        <img src="images/pizzeria-home/pizza-8.jpg" alt="Gallery Image 5" />
+        <img src="images/pizzeria-home/pizza-9.jpg" alt="Gallery Image 6" />
+      </div>
+
+      <div class="instagram-link">
+        <a href="https://instagram.com" target="_blank">View more on Instagram</a>
+      </div>
+    </script>
+
     <script id="template-booking-widget" type="text/x-handlebars-template">
-      <div class='booking-widget'>
-        <h2 class='page__title no-spacing'>Book a table</h2>
-        <form class='booking-form'>
-          <div class='time-picker'>
-            <div class='date-picker'>
-              <label class='booking-option-title'>Pick a date</label>
-              <input type='text' name='date' />
+      <div class="booking-widget">
+        <h2 class="page__title no-spacing">Book a table</h2>
+        <form class="booking-form">
+          <div class="time-picker">
+            <div class="date-picker">
+              <label class="booking-option-title">Pick a date</label>
+              <input type="text" name="date" />
             </div>
-            <div class='hour-picker range-slider'>
-              <div class='output'></div>
-              <label class='booking-option-title'>Pick a time</label>
+            <div class="hour-picker range-slider">
+              <div class="output"></div>
+              <label class="booking-option-title">Pick a time</label>
               <input
-                type='range'
-                name='hour'
-                value='12'
-                min='12'
-                max='24'
-                step='0.5'
+                type="range"
+                name="hour"
+                value="12"
+                min="12"
+                max="24"
+                step="0.5"
               />
             </div>
           </div>
-          <div class='floor-plan'>
-            <div class='object entry'>entry</div>
-            <div class='object bar'>bar</div>
-            <div class='object table' data-table='1'>table-1</div>
-            <div class='object table table--round' data-table='2'>table-2</div>
-            <div class='object table' data-table='3'>table-3</div>
+          <div class="floor-plan">
+            <div class="object entry">entry</div>
+            <div class="object bar">bar</div>
+            <div class="object table" data-table="1">table-1</div>
+            <div class="object table table--round" data-table="2">table-2</div>
+            <div class="object table" data-table="3">table-3</div>
           </div>
-          <div class='booking-options'>
-            <!-- options -->
-            <label class='booking-option-title'>
+          <div class="booking-options">
+            options
+            <label class="booking-option-title">
               <!-- option-row -->
               People
-              <div class='widget-amount people-amount'>
+              <div class="widget-amount people-amount">
                 <!-- widget-amount -->
-                <a class='btn-quantity' href='#less'><i
-                    class='fas fa-minus'
+                <a class="btn-quantity" href="#less"><i
+                    class="fas fa-minus"
                   ></i></a>
-                <input class='amount' type='text' name='people' value='1' />
-                <a class='btn-quantity' href='#more'><i
-                    class='fas fa-plus'
+                <input class="amount" type="text" name="people" value="1" />
+                <a class="btn-quantity" href="#more"><i
+                    class="fas fa-plus"
                   ></i></a>
               </div>
             </label>
-            <label class='booking-option-title'>
+            <label class="booking-option-title">
               <!-- option-row -->
               Hours
-              <div class='widget-amount hours-amount'>
+              <div class="widget-amount hours-amount">
                 <!-- widget-amount -->
-                <a class='btn-quantity' href='#less'><i
-                    class='fas fa-minus'
+                <a class="btn-quantity" href="#less"><i
+                    class="fas fa-minus"
                   ></i></a>
-                <input class='amount' type='text' name='hours' value='1' />
-                <a class='btn-quantity' href='#more'><i
-                    class='fas fa-plus'
+                <input class="amount" type="text" name="hours" value="1" />
+                <a class="btn-quantity" href="#more"><i
+                    class="fas fa-plus"
                   ></i></a>
               </div>
             </label>
             <div>
               <!-- option-row -->
-              <span class='booking-option-title'>Starters</span>
-              <div class='checkbox'>
+              <span class="booking-option-title">Starters</span>
+              <div class="checkbox">
                 <!-- checkbox -->
                 <label>
-                  <input type='checkbox' name='starter' value='water' />
-                  <span class='checkbox__checkmark'></span>
+                  <input type="checkbox" name="starter" value="water" />
+                  <span class="checkbox__checkmark"></span>
                   Water
                 </label>
               </div>
-              <div class='checkbox'>
+              <div class="checkbox">
                 <!-- checkbox -->
                 <label>
-                  <input type='checkbox' name='starter' value='bread' />
-                  <span class='checkbox__checkmark'></span>
+                  <input type="checkbox" name="starter" value="bread" />
+                  <span class="checkbox__checkmark"></span>
                   Bread
                 </label>
               </div>
             </div>
           </div>
-          <div class='order-confirmation'>
-            <input type='tel' name='phone' placeholder='Your phone' />
-            <input type='text' name='address' placeholder='Your address' />
-            <button type='submit' class='btn-secondary'>Book table</button>
+          <div class="order-confirmation">
+            <input type="tel" name="phone" placeholder="Your phone" />
+            <input type="text" name="address" placeholder="Your address" />
+            <button type="submit" class="btn-secondary">Book table</button>
           </div>
         </form>
       </div>
@@ -298,6 +398,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="vendor/range-slider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script src="js/app.js" type="module"></script>
   </body>

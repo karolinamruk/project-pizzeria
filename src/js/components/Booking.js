@@ -374,8 +374,6 @@ class Booking {
       address: thisBooking.dom.address.value,
     };
 
-    console.log(payload);
-
     // for (let starter of thisBooking.starters) {
     //   payload.products.push(starter.getData());
     // }
@@ -406,6 +404,7 @@ class Booking {
         );
         thisBooking.updateDOM(); // Zaktualizuj DOM, aby odzwierciedlić nową rezerwację
       });
+    console.log(payload);
   }
 }
 
