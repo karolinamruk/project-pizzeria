@@ -224,8 +224,9 @@
             <a href="#">
               <img
                 src="images/pizzeria-home/pizza-1.jpg"
-                alt="Order Online"
-              /><span>Order Online</span>
+                alt="ORDER Online"
+              /><div class="btn-title">Order Online</div>
+              <div class="btn-subtitle">Delicious food delivered to your door</div>
             </a>
           </div>
 
@@ -234,7 +235,9 @@
               <img
                 src="images/pizzeria-home/pizza-2.jpg"
                 alt="Book a Table"
-              /><span>Book a Table</span>
+              /><div class="btn-title">Book a Table</div>
+              <div class="btn-subtitle">
+                Please check the availability of tables</div>
             </a>
           </div>
 
@@ -246,15 +249,18 @@
         </div>
       </div>
 
-      <!-- <div class="home-carousel">
+      <div
+        class="home-carousel"
+        data-flickity='{"autoPlay": 3000,  "wrapAround": true, "prevNextButtons": false }'
+      >
         <div class="carousel-cell">
-          <div class="testimonial">
-            <img
-              src="images/pizzeria-home/pizza-3.jpg"
-              alt="Customer Image 1"
-              class="img-carousel"
-            />
-            <p>AMAZING SERVICE!</p>
+          <img
+            src="images/pizzeria-home/pizza-3.jpg"
+            alt="Customer Image 1"
+            class="img-carousel"
+          />
+          <div class="carousel-text">
+            <h3>AMAZING SERVICE!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
               dolor at elit lobortis sodales.</p>
@@ -263,13 +269,13 @@
         </div>
 
         <div class="carousel-cell">
-          <div class="testimonial">
-            <img
-              src="images/pizzeria-home/pizza-2.jpg"
-              alt="Customer Image 2"
-              class="img-carousel"
-            />
-            <p>BEST PIZZA IN TOWN!</p>
+          <img
+            src="images/pizzeria-home/pizza-2.jpg"
+            alt="Customer Image 2"
+            class="img-carousel"
+          />
+          <div class="carousel-text">
+            <h3>BEST PIZZA IN TOWN!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
               dolor at elit lobortis sodales.</p>
@@ -278,20 +284,21 @@
         </div>
 
         <div class="carousel-cell">
-          <div class="testimonial">
-            <img
-              src="images/pizzeria-home/pizza-2.jpg"
-              alt="Customer Image 3"
-              class="img-carousel"
-            />
-            <p>GREAT ATMOSPHERE!</p>
+          <img
+            src="images/pizzeria-home/pizza-2.jpg"
+            alt="Customer Image 3"
+            class="img-carousel"
+          />
+          <div class="carousel-text">
+            <h3>GREAT ATMOSPHERE!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
               dolor at elit lobortis sodales.</p>
             <span class="author">- Jane Smith</span>
           </div>
         </div>
-      </div> -->
+
+      </div>
 
       <div class="home-gallery">
         <div class="gallery-item">
@@ -337,15 +344,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="home-gallery">
-        <img src="images/pizzeria-home/pizza-4.jpg" alt="Gallery Image 1" />
-        <img src="images/pizzeria-home/pizza-5.jpg" alt="Gallery Image 2" />
-        <img src="images/pizzeria-home/pizza-6.jpg" alt="Gallery Image 3" />
-        <img src="images/pizzeria-home/pizza-7.jpg" alt="Gallery Image 4" />
-        <img src="images/pizzeria-home/pizza-8.jpg" alt="Gallery Image 5" />
-        <img src="images/pizzeria-home/pizza-9.jpg" alt="Gallery Image 6" />
-      </div> -->
 
       <div class="instagram-link">
         <a href="https://instagram.com" target="_blank">View more on Instagram</a>
@@ -446,7 +444,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
     <script src="js/app.js" type="module"></script>
   </body>
 </html>

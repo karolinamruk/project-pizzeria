@@ -1,17 +1,17 @@
-// // import { settings, select, classNames, templates } from '../settings.js';
+// import { select } from "../settings.js";
 
 // class Carousel {
 //   constructor(element) {
 //     const thisCarousel = this;
-//     this.render(element);
-//     this.initPlugin();
+//     thisCarousel.render(element);
+//     thisCarousel.initPlugin();
 //   }
 
 //   render(element) {
-//     document.addEventListener('DOMContentLoaded', () => {
-//       const carouselElement = document.getElementById('carousel');
-//       new Carousel(carouselElement);
-//     });
+//     const thisCarousel = this;
+//     thisCarousel.dom.input = thisCarousel.dom.wrapper.querySelectorAll(
+//       select.home.homeCarousel
+//     );
 //     // save element ref to this obj
 //   }
 

@@ -8,8 +8,8 @@
 
 .home-banner {
   position: relative;
-  color: $color-light;
   height: 250px;
+  color: $color-light;
 }
 
 .home-buttons {
@@ -17,16 +17,15 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 5px;
+  color: $color-light;
 }
 
 .btn-order-online,
 .btn-book-a-table {
-  font-size: 24px;
-  font-weight: bold;
   text-transform: uppercase;
+  font-size: 25px;
   position: relative;
   flex: auto;
-  // width: 100%;
   height: 120px;
   border-radius: 4px;
   overflow: hidden;
@@ -40,22 +39,40 @@
   position: absolute;
 }
 
-.btn-order-online span,
-.btn-book-a-table span {
+.btn-title {
   position: absolute;
-  color: white;
+  color: $color-light;
   font-family: $font-header;
-  text-align: center;
   object-fit: cover;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 0.3s linear;
 }
 
-.btn-order-online:hover span,
-.btn-book-a-table:hover span {
-  transform: translate(-50%, -25px);
-  transition: transform 0.3s ease;
+.btn-subtitle {
+  color: $color-light;
+  position: absolute;
+  bottom: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-size: 14px;
+  text-transform: none;
+  text-align: center;
+  width: 100%;
+  transition: bottom 0.3s linear;
+}
+
+.btn-order-online:hover .btn-title,
+.btn-book-a-table:hover .btn-title {
+  transform: translate(-50%, -110%);
+}
+
+.btn-order-online:hover .btn-subtitle,
+.btn-book-a-table:hover .btn-subtitle {
+  bottom: 20%;
+  opacity: 1;
 }
 
 .opening-hours {
@@ -81,34 +98,49 @@
   transform: translate(0%, -45%);
 }
 
-// .home-carousel {
-//   margin: 20px 0;
+// Home Carousel
 
-//   .carousel-cell {
-//     background: #fff;
-//     border: 1px solid #ddd;
-//     padding: 20px;
-//     margin: 0 10px;
-//     text-align: center;
+.home-carousel {
+  margin-bottom: 100px;
+  width: 100%;
+  position: relative;
 
-//     .img-carousel {
-//       max-width: 100%;
-//       height: auto;
-//       margin-bottom: 15px;
-//     }
+  .carousel-cell {
+    position: relative;
+    height: 190px;
 
-//     p {
-//       margin: 10px 0;
-//       font-size: 16px;
-//     }
+    .img-carousel {
+      text-align: left;
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .carousel-text {
+      text-align: left;
+      display: block;
+      margin-left: 220px;
+      position: relative;
+    }
 
-//     .author {
-//       font-style: italic;
-//       font-size: 14px;
-//     }
-//   }
-// }
+    p {
+      margin: 10px 0;
+      font-size: 14px;
+    }
 
+    .author {
+      font-style: italic;
+      font-size: 14px;
+    }
+  }
+
+  // .flickity-button {
+  //   display: none;
+  // }
+}
+
+// Home Gallery
 .home-gallery {
   display: flex;
   flex-wrap: wrap;

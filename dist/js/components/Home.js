@@ -1,5 +1,5 @@
-import { select, templates } from '../settings.js';
-// import Carousel from '../components/Carousel.js';
+import { select, templates } from "../settings.js";
+// import Carousel from "../components/Carousel.js";
 
 class Home {
   constructor(element) {
@@ -19,13 +19,35 @@ class Home {
 
     thisHome.dom.wrapper.innerHTML = generatedHTML;
 
-    thisHome.dom.homeCarousel = thisHome.dom.wrapper.querySelector(
-      select.home.homeCarousel
-    );
+    // thisHome.dom.orderOnlineButton = thisHome.dom.wrapper.querySelector(
+    //   ".btn-order-online a"
+    // );
+    // thisHome.dom.bookTableButton = thisHome.dom.wrapper.querySelector(
+    //   ".btn-book-a-table a"
+    // );
+
+    // thisHome.dom.homeCarousel = thisHome.dom.wrapper.querySelector(
+    //   select.home.homeCarousel
+    // );
   }
 
   initWidgets() {
-    // const thisHome = this;
+    const thisHome = this;
+
+    thisHome.dom.orderOnlineButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.hash = "#/order";
+    });
+
+    thisHome.dom.bookTableButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.hash = "#booking";
+    });
+
+    // const homeCarousel = document.getElementById(select.home.homeCarousel);
+    // if (homeCarousel) {
+    //   new Carousel(homeCarousel);
+    // }
     // thisHome.carouselElement = thisHome.dom.wrapper.querySelector('#carousel');
     // if (thisHome.carouselElement) {
     //   new Carousel(thisHome.carouselElement);
