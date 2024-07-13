@@ -10,6 +10,26 @@ const app = {
 
     thisApp.home = document.querySelector(select.containerOf.home);
     new Home(thisApp.home);
+
+    thisApp.homeButtons = document.querySelectorAll(select.home.homeButtons);
+
+    thisApp.addListeners(thisApp.homeButtons);
+
+    // for (let link of thisApp.homeButtons) {
+    //   link.addEventListener('click', function (event) {
+    //     const clickedElement = this;
+    //     event.preventDefault();
+
+    //     /* get page id from href attibute */
+    //     const id = clickedElement.getAttribute('href').replace('#', '');
+
+    //     /* run thisApp.activatePage with that id */
+    //     thisApp.activatePage(id);
+
+    //     /* change URL hash */
+    //     window.location.hash = '#/' + id;
+    //   });
+    // }
   },
 
   initBooking() {
@@ -39,7 +59,13 @@ const app = {
 
     thisApp.activatePage(pageMatchingHash);
 
-    for (let link of thisApp.navLinks) {
+    thisApp.addListeners(thisApp.navLinks);
+  },
+
+  addListeners: function (element) {
+    const thisApp = this;
+
+    for (let link of element) {
       link.addEventListener('click', function (event) {
         const clickedElement = this;
         event.preventDefault();

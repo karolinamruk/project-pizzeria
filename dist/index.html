@@ -107,33 +107,33 @@
 
     <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
-        <div class="widget-amount">
+        <div class='widget-amount'>
           <!-- widget-amount -->
-          <a class="btn-quantity btn-quantity--lt" href="#less"><i
-              class="fas fa-minus"
+          <a class='btn-quantity btn-quantity--lt' href='#less'><i
+              class='fas fa-minus'
             ></i></a>
-          <input class="amount" type="text" value="{{amount}}" />
-          <a class="btn-quantity btn-quantity--lt" href="#more"><i
-              class="fas fa-plus"
+          <input class='amount' type='text' value='{{amount}}' />
+          <a class='btn-quantity btn-quantity--lt' href='#more'><i
+              class='fas fa-plus'
             ></i></a>
         </div>
-        <div class="cart__product">
-          <div class="cart__product-header">
+        <div class='cart__product'>
+          <div class='cart__product-header'>
             <span>{{name}}</span>
-            <span>$<strong class="cart__product-price">{{price}}</strong></span>
+            <span>$<strong class='cart__product-price'>{{price}}</strong></span>
           </div>
-          <ul class="cart__product-details no-spacing">
+          <ul class='cart__product-details no-spacing'>
             {{#each params}}
               <li>
-                <span class="cart__product-details-label">{{label}}</span>
+                <span class='cart__product-details-label'>{{label}}</span>
                 <span>{{#joinValues options}}, {{/joinValues}}</span>
               </li>
             {{/each}}
           </ul>
         </div>
-        <ul class="cart__action-buttons no-spacing">
-          <li><a href="#edit">Edit<i class="fas fa-pencil-alt"></i></a></li>
-          <li><a href="#remove">Remove<i class="fas fa-trash-alt"></i></a></li>
+        <ul class='cart__action-buttons no-spacing'>
+          <li><a href='#edit'>Edit<i class='fas fa-pencil-alt'></i></a></li>
+          <li><a href='#remove'>Remove<i class='fas fa-trash-alt'></i></a></li>
         </ul>
       </li>
     </script>
@@ -218,222 +218,221 @@
     </script>
 
     <script id="template-home-wrapper" type="text/x-handlebars-template">
-      <div class="home-banner">
-        <div class="home-buttons">
-          <div class="btn-order-online">
-            <a href="#">
+      <div class='home-banner'>
+        <div class='home-buttons'>
+          <div class='btn-order-online'>
+            <a href='#order'>
               <img
-                src="images/pizzeria-home/pizza-1.jpg"
-                alt="ORDER Online"
-              /><div class="btn-title">Order Online</div>
-              <div class="btn-subtitle">Delicious food delivered to your door</div>
+                src='images/pizzeria-home/pizza-1.jpg'
+                alt='ORDER Online'
+              /><div class='btn-title'>Order Online</div>
+              <div class='btn-subtitle'>Delicious food delivered to your door</div>
             </a>
           </div>
 
-          <div class="btn-book-a-table">
-            <a href="#">
+          <div class='btn-book-a-table'>
+            <a href='#booking'>
               <img
-                src="images/pizzeria-home/pizza-2.jpg"
-                alt="Book a Table"
-              /><div class="btn-title">Book a Table</div>
-              <div class="btn-subtitle">
+                src='images/pizzeria-home/pizza-2.jpg'
+                alt='Book a Table'
+              /><div class='btn-title'>Book a Table</div>
+              <div class='btn-subtitle'>
                 Please check the availability of tables</div>
             </a>
           </div>
 
         </div>
 
-        <div class="opening-hours">
-          <p class="opening-hours-header">OPENING HOURS:</p>
-          <p class="opening-hours-header2">TUE-SUN, 12PM - 12AM</p>
+        <div class='opening-hours'>
+          <p class='opening-hours-header'>OPENING HOURS:</p>
+          <p class='opening-hours-header2'>TUE-SUN, 12PM - 12AM</p>
         </div>
       </div>
 
       <div
-        class="home-carousel"
+        class='home-carousel'
         data-flickity='{"autoPlay": 3000,  "wrapAround": true, "prevNextButtons": false }'
       >
-        <div class="carousel-cell">
+        <div class='carousel-cell'>
           <img
-            src="images/pizzeria-home/pizza-3.jpg"
-            alt="Customer Image 1"
-            class="img-carousel"
+            src='images/pizzeria-home/pizza-3.jpg'
+            alt='Customer Image 1'
+            class='img-carousel'
           />
-          <div class="carousel-text">
+          <div class='carousel-text'>
             <h3>AMAZING SERVICE!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
               dolor at elit lobortis sodales.</p>
-            <span class="author">- Margaret Osborne</span>
+            <span class='author'>- Margaret Osborne</span>
           </div>
         </div>
 
-        <div class="carousel-cell">
+        <div class='carousel-cell'>
           <img
-            src="images/pizzeria-home/pizza-2.jpg"
-            alt="Customer Image 2"
-            class="img-carousel"
+            src='images/pizzeria-home/pizza-2.jpg'
+            alt='Customer Image 2'
+            class='img-carousel'
           />
-          <div class="carousel-text">
+          <div class='carousel-text'>
             <h3>BEST PIZZA IN TOWN!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
               dolor at elit lobortis sodales.</p>
-            <span class="author">- John Doe</span>
+            <span class='author'>- John Doe</span>
           </div>
         </div>
 
-        <div class="carousel-cell">
+        <div class='carousel-cell'>
           <img
-            src="images/pizzeria-home/pizza-2.jpg"
-            alt="Customer Image 3"
-            class="img-carousel"
+            src='images/pizzeria-home/pizza-2.jpg'
+            alt='Customer Image 3'
+            class='img-carousel'
           />
-          <div class="carousel-text">
+          <div class='carousel-text'>
             <h3>GREAT ATMOSPHERE!</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed
               dolor at elit lobortis sodales.</p>
-            <span class="author">- Jane Smith</span>
+            <span class='author'>- Jane Smith</span>
           </div>
         </div>
 
       </div>
 
-      <div class="home-gallery">
-        <div class="gallery-item">
-          <img src="images/pizzeria-home/pizza-4.jpg" alt="Obraz Galerii 1" />
-          <div class="overlay">
-            <a href="#"><i class="fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+      <div class='home-gallery'>
+        <div class='gallery-item'>
+          <img src='images/pizzeria-home/pizza-4.jpg' alt='Obraz Galerii 1' />
+          <div class='overlay'>
+            <a href='#'><i class='fa-solid fa-heart'></i></a>
+            <a href='#'><i class='fa-solid fa-share-nodes'></i></a>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/pizzeria-home/pizza-5.jpg" alt="Obraz Galerii 2" />
-          <div class="overlay">
-            <a href="#"> <i class="fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+        <div class='gallery-item'>
+          <img src='images/pizzeria-home/pizza-5.jpg' alt='Obraz Galerii 2' />
+          <div class='overlay'>
+            <a href='#'> <i class='fa-solid fa-heart'></i></a>
+            <a href='#'><i class='fa-solid fa-share-nodes'></i></a>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/pizzeria-home/pizza-6.jpg" alt="Obraz Galerii 3" />
-          <div class="overlay">
-            <a href="#"><i class="fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+        <div class='gallery-item'>
+          <img src='images/pizzeria-home/pizza-6.jpg' alt='Obraz Galerii 3' />
+          <div class='overlay'>
+            <a href='#'><i class='fa-solid fa-heart'></i></a>
+            <a href='#'><i class='fa-solid fa-share-nodes'></i></a>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/pizzeria-home/pizza-7.jpg" alt="Obraz Galerii 4" />
-          <div class="overlay">
-            <a href="#"><i class="fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+        <div class='gallery-item'>
+          <img src='images/pizzeria-home/pizza-7.jpg' alt='Obraz Galerii 4' />
+          <div class='overlay'>
+            <a href='#'><i class='fa-solid fa-heart'></i></a>
+            <a href='#'><i class='fa-solid fa-share-nodes'></i></a>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/pizzeria-home/pizza-8.jpg" alt="Obraz Galerii 5" />
-          <div class="overlay">
-            <a href="#"><i class="fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+        <div class='gallery-item'>
+          <img src='images/pizzeria-home/pizza-8.jpg' alt='Obraz Galerii 5' />
+          <div class='overlay'>
+            <a href='#'><i class='fa-solid fa-heart'></i></a>
+            <a href='#'><i class='fa-solid fa-share-nodes'></i></a>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/pizzeria-home/pizza-9.jpg" alt="Obraz Galerii 6" />
-          <div class="overlay">
-            <a href="#"><i class="fa-solid fa-heart"></i></a>
-            <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+        <div class='gallery-item'>
+          <img src='images/pizzeria-home/pizza-9.jpg' alt='Obraz Galerii 6' />
+          <div class='overlay'>
+            <a href='#'><i class='fa-solid fa-heart'></i></a>
+            <a href='#'><i class='fa-solid fa-share-nodes'></i></a>
           </div>
         </div>
       </div>
 
-      <div class="instagram-link">
-        <a href="https://instagram.com" target="_blank">View more on Instagram</a>
+      <div class='instagram-link'>
+        <a href='https://instagram.com' target='_blank'>View more on Instagram</a>
       </div>
     </script>
 
     <script id="template-booking-widget" type="text/x-handlebars-template">
-      <div class="booking-widget">
-        <h2 class="page__title no-spacing">Book a table</h2>
-        <form class="booking-form">
-          <div class="time-picker">
-            <div class="date-picker">
-              <label class="booking-option-title">Pick a date</label>
-              <input type="text" name="date" />
+      <div class='booking-widget'>
+        <h2 class='page__title no-spacing'>Book a table</h2>
+        <form class='booking-form'>
+          <div class='time-picker'>
+            <div class='date-picker'>
+              <label class='booking-option-title'>Pick a date</label>
+              <input type='text' name='date' />
             </div>
-            <div class="hour-picker range-slider">
-              <div class="output"></div>
-              <label class="booking-option-title">Pick a time</label>
+            <div class='hour-picker range-slider'>
+              <div class='output'></div>
+              <label class='booking-option-title'>Pick a time</label>
               <input
-                type="range"
-                name="hour"
-                value="12"
-                min="12"
-                max="24"
-                step="0.5"
+                type='range'
+                name='hour'
+                value='12'
+                min='12'
+                max='24'
+                step='0.5'
               />
             </div>
           </div>
-          <div class="floor-plan">
-            <div class="object entry">entry</div>
-            <div class="object bar">bar</div>
-            <div class="object table" data-table="1">table-1</div>
-            <div class="object table table--round" data-table="2">table-2</div>
-            <div class="object table" data-table="3">table-3</div>
+          <div class='floor-plan'>
+            <div class='object entry'>entry</div>
+            <div class='object bar'>bar</div>
+            <div class='object table' data-table='1'>table-1</div>
+            <div class='object table table--round' data-table='2'>table-2</div>
+            <div class='object table' data-table='3'>table-3</div>
           </div>
-          <div class="booking-options">
-            options
-            <label class="booking-option-title">
+          <div class='booking-options'>
+            <label class='booking-option-title'>
               <!-- option-row -->
               People
-              <div class="widget-amount people-amount">
+              <div class='widget-amount people-amount'>
                 <!-- widget-amount -->
-                <a class="btn-quantity" href="#less"><i
-                    class="fas fa-minus"
+                <a class='btn-quantity' href='#less'><i
+                    class='fas fa-minus'
                   ></i></a>
-                <input class="amount" type="text" name="people" value="1" />
-                <a class="btn-quantity" href="#more"><i
-                    class="fas fa-plus"
+                <input class='amount' type='text' name='people' value='1' />
+                <a class='btn-quantity' href='#more'><i
+                    class='fas fa-plus'
                   ></i></a>
               </div>
             </label>
-            <label class="booking-option-title">
+            <label class='booking-option-title'>
               <!-- option-row -->
               Hours
-              <div class="widget-amount hours-amount">
+              <div class='widget-amount hours-amount'>
                 <!-- widget-amount -->
-                <a class="btn-quantity" href="#less"><i
-                    class="fas fa-minus"
+                <a class='btn-quantity' href='#less'><i
+                    class='fas fa-minus'
                   ></i></a>
-                <input class="amount" type="text" name="hours" value="1" />
-                <a class="btn-quantity" href="#more"><i
-                    class="fas fa-plus"
+                <input class='amount' type='text' name='hours' value='1' />
+                <a class='btn-quantity' href='#more'><i
+                    class='fas fa-plus'
                   ></i></a>
               </div>
             </label>
             <div>
               <!-- option-row -->
-              <span class="booking-option-title">Starters</span>
-              <div class="checkbox">
+              <span class='booking-option-title'>Starters</span>
+              <div class='checkbox'>
                 <!-- checkbox -->
                 <label>
-                  <input type="checkbox" name="starter" value="water" />
-                  <span class="checkbox__checkmark"></span>
+                  <input type='checkbox' name='starter' value='water' />
+                  <span class='checkbox__checkmark'></span>
                   Water
                 </label>
               </div>
-              <div class="checkbox">
+              <div class='checkbox'>
                 <!-- checkbox -->
                 <label>
-                  <input type="checkbox" name="starter" value="bread" />
-                  <span class="checkbox__checkmark"></span>
+                  <input type='checkbox' name='starter' value='bread' />
+                  <span class='checkbox__checkmark'></span>
                   Bread
                 </label>
               </div>
             </div>
           </div>
-          <div class="order-confirmation">
-            <input type="tel" name="phone" placeholder="Your phone" />
-            <input type="text" name="address" placeholder="Your address" />
-            <button type="submit" class="btn-secondary">Book table</button>
+          <div class='order-confirmation'>
+            <input type='tel' name='phone' placeholder='Your phone' />
+            <input type='text' name='address' placeholder='Your address' />
+            <button type='submit' class='btn-secondary'>Book table</button>
           </div>
         </form>
       </div>
